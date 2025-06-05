@@ -10,4 +10,5 @@ after_success:
   - coveralls
 addons:
   sonarcloud:
-    organization: jwoytek
+    organization: SONAR_TOKEN                                         # 여기에 자신의 Organization 이름 입력
+    projectKey: 95072281dc278b59309c023ea62f9d1847d49ad5              # 여기에 자신의 Project Key 입력
