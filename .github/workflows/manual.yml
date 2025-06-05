@@ -16,10 +16,15 @@ jobs:
           - 3.9
     steps:
       - name: 'Set up Python ${{ matrix.python-version }}'
-        uses: actions/setup-python@v3
+        uses: actions/setup-python@v2
         with:
           python-version: '${{ matrix.python-version }}'
-      - uses: actions/checkout@v4
+      - name: Upload coverage report
+        uses: actions/upload-artifact@v2
+        with:
+          name: coverage-report
+          path: coverage.xml    
+      - uses: actions/checkout@v2
       - run: pip install -r requirements.txt
       - run: py.test --cov --cov-report=xml owm tests -vv
       - name: Analyze with SonarCloud
